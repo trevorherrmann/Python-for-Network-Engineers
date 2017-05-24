@@ -1,0 +1,61 @@
+I. Create an IP address converter (dotted decimal to binary).  This will be similar to what we did in class2 except:
+
+    A. Make the IP address a command-line argument instead of prompting the user for it.
+        ./binary_converter.py 10.88.17.23
+
+    B. Simplify the script logic by using the flow-control statements that we learned in this class.
+
+    C. Zero-pad the digits such that the binary output is always 8-binary digits long.  Strip off the leading '0b' characters.  For example,
+
+        OLD:     0b1010
+        NEW:    00001010
+
+    D. Print to standard output using a dotted binary format.  For example,
+
+        IP address          Binary
+      10.88.17.23          00001010.01011000.00010001.00010111
+
+
+    Note, you might need to use a 'while' loop and a 'break' statement for part C.
+
+        while True:
+            ...
+            break       # on some condition (exit the while loop)
+
+    Python will execute this loop again and again until the 'break' is encountered.
+
+
+II. Modify the 'show ip bgp' exercise from class2.   Simplify the program using the flow-control statements from this class.
+
+
+III. You have the following 'show ip int brief' output.
+
+show_ip_int_brief = '''
+Interface            IP-Address      OK?     Method      Status     Protocol
+FastEthernet0   unassigned      YES     unset          up          up
+FastEthernet1   unassigned      YES     unset          up          up
+FastEthernet2   unassigned      YES     unset          down      down
+FastEthernet3   unassigned      YES     unset          up          up
+FastEthernet4    6.9.4.10          YES     NVRAM       up          up
+NVI0                  6.9.4.10          YES     unset           up          up
+Tunnel1            16.25.253.2     YES     NVRAM       up          down
+Tunnel2            16.25.253.6     YES     NVRAM       up          down
+Vlan1                unassigned      YES    NVRAM       down      down
+Vlan10              10.220.88.1     YES     NVRAM       up          up
+Vlan20              192.168.0.1     YES     NVRAM       down      down
+Vlan100            10.220.84.1     YES     NVRAM       up          up
+'''
+
+From this output, create a list where each element in the list is a tuple consisting of (interface_name, ip_address, status, protocol).  Only include interfaces that are in the up/up state.
+
+Print this list to standard output.
+
+
+IV. Create a script that checks the validity of an IP address.  The IP address should be supplied on the command line.
+    A. Check that the IP address contains 4 octets.
+    B. The first octet must be between 1 - 223.
+    C. The first octet cannot be 127.
+    D. The IP address cannot be in the 169.254.X.X address space.
+    E. The last three octets must range between 0 - 255.
+
+    For output, print the IP and whether it is valid or not.
